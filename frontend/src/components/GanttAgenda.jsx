@@ -28,7 +28,7 @@ export default function GanttAgenda({ poltronas = [] }) {
       <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2">
-            <h3 className="text-xl font-extrabold text-slate-900 tracking-tight">📅 Diagrama de Gantt da Unidade</h3>
+            <h3 className="text-xl font-extrabold text-slate-900 tracking-tight">Diagrama de Gantt da Unidade</h3>
             <span className="text-xs px-2.5 py-0.5 rounded-full bg-teal-50 text-teal-800 border border-teal-200 font-bold">
               07h00 às 18h00
             </span>

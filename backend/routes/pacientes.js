@@ -2,9 +2,10 @@ const express = require('express');
 const router = express.Router();
 const db = require('../database');
 
-// Etapas sequenciais do Kanban
+// Etapas sequenciais do Kanban (7 etapas do fluxo oncológico)
 const KANBAN_STAGES = [
   'Aguardando Check-in',
+  'Consulta Médica',
   'Triagem/Punção',
   'Em Manipulação',
   'Pronto para Infundir', // Bolsa a Caminho
