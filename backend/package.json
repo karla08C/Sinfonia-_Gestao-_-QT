@@ -1,0 +1,19 @@
+{
+  "name": "sinfonia-backend",
+  "version": "1.0.0",
+  "description": "Backend API do Sinfonia - Fluxo e Torre de Controle de Quimioterapia",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": ["oncologia", "quimioterapia", "tetris-clinico", "just-in-time", "saas-medico"],
+  "author": "Sinfonia Team",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "sqlite3": "^5.1.7"
+  }
+}

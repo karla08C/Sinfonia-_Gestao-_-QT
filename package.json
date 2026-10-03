@@ -1,0 +1,9 @@
+{
+  "name": "sinfonia",
+  "version": "2.0.0",
+  "description": "Sinfonia: Fluxo & Torre de Controle da Quimioterapia",
+  "scripts": {
+    "start": "node dev-server.js",
+    "backend": "node backend/server.js"
+  }
+}
