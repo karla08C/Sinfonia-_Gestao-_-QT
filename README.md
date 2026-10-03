@@ -1,0 +1,1 @@
+# Sinfonia---Gest-o-e-Controle-de-QT
