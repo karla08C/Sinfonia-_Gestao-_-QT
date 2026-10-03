@@ -591,9 +591,6 @@
                 
                 {/* Logo Sinfonia */}
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-600 to-indigo-600 flex items-center justify-center shadow-md shadow-teal-600/20 text-white font-black text-xl">
-                    🎼
-                  </div>
                   <div>
                     <div className="flex items-center gap-2">
                       <span className="text-xl font-extrabold tracking-tight text-slate-900">Sinfonia</span>
@@ -601,7 +598,6 @@
                         Fluxo QT
                       </span>
                     </div>
-                    <p className="text-xs text-slate-500 hidden sm:block">Orquestração em Tempo Real: Recepção • Capela • Infusão</p>
                   </div>
                 </div>
 
@@ -638,16 +634,6 @@
                     Mapa Poltronas
                   </button>
                   <button
-                    onClick={() => setActiveTab('hoje_proposta')}
-                    className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all ${
-                      activeTab === 'hoje_proposta'
-                        ? 'bg-teal-600 text-white shadow-sm'
-                        : 'text-teal-700 hover:bg-teal-50'
-                    }`}
-                  >
-                    📊 Hoje × Proposta
-                  </button>
-                  <button
                     onClick={() => setActiveTab('gantt')}
                     className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all ${
                       activeTab === 'gantt'
@@ -655,7 +641,17 @@
                         : 'text-slate-600 hover:text-slate-900'
                     }`}
                   >
-                    📅 Gantt
+                    Gantt
+                  </button>
+                  <button
+                    onClick={() => setActiveTab('hoje_proposta')}
+                    className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all ${
+                      activeTab === 'hoje_proposta'
+                        ? 'bg-teal-600 text-white shadow-sm'
+                        : 'text-teal-700 hover:bg-teal-50'
+                    }`}
+                  >
+                    Hoje × Proposta
                   </button>
                 </nav>
 
@@ -835,13 +831,13 @@
                 </div>
 
                 {/* COLUNAS KANBAN (7 ETAPAS) */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7 gap-3.5 items-start overflow-x-auto pb-4">
+                <div className="flex gap-3 overflow-x-auto pb-4 items-start scroll-smooth">
                   {KANBAN_STAGES.map(stage => {
                     const colPacientes = pacientesFiltrados.filter(p => p.status === stage.id);
                     const nextAct = NEXT_LABELS[stage.id];
 
                     return (
-                      <div key={stage.id} className="bg-slate-100/80 rounded-2xl border border-slate-200 p-3 min-w-[210px] min-h-[500px]">
+                      <div key={stage.id} className="bg-slate-100/80 rounded-2xl border border-slate-200 p-3 w-[270px] shrink-0 min-h-[500px] flex flex-col">
                         <div className={`p-2.5 rounded-xl border mb-3 flex items-center justify-between shadow-2xs ${stage.color}`}>
                           <span className="font-bold text-xs">{stage.title}</span>
                           <span className={`text-[10px] font-mono font-bold px-1.5 py-0.5 rounded border ${stage.badge}`}>
@@ -865,7 +861,7 @@
                               return (
                                 <div
                                   key={pac.id}
-                                  className={`rounded-2xl p-3.5 shadow-xs transition-all ${
+                                  className={`rounded-2xl p-3 shadow-xs transition-all ${
                                     isAlerta
                                       ? 'border-2 border-amber-400 bg-amber-50 ring-2 ring-amber-300 shadow-md animate-pulse-fast'
                                       : isInfusao
@@ -1199,7 +1195,7 @@
               <div className="space-y-6 animate-in fade-in">
                 <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-xs">
                   <h3 className="text-xl font-extrabold text-slate-900 flex items-center gap-2">
-                    <span>📊 Hoje × Proposta Sinfonia</span>
+                    <span>Hoje × Proposta Sinfonia</span>
                     <span className="text-xs px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300 font-bold">
                       Ganhos Auditados
                     </span>
@@ -1315,7 +1311,7 @@
                 <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-xs">
                   <div className="flex items-center justify-between">
                     <div>
-                      <h3 className="text-xl font-bold text-slate-900">📅 Diagrama de Gantt da Unidade (07h às 18h)</h3>
+                      <h3 className="text-xl font-bold text-slate-900">Diagrama de Gantt da Unidade (07h às 18h)</h3>
                       <p className="text-xs text-slate-500 mt-1">Linha do tempo integrada entre Poltronas e Capela de Fluxo Laminar</p>
                     </div>
                     <div className="flex items-center gap-3 text-xs font-bold">

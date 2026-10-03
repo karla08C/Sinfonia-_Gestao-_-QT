@@ -72,7 +72,7 @@ export default function KanbanBoard({ pacientes = [], onAvancar, onSelectPatient
   const [filtroTurno, setFiltroTurno] = useState('');
   const [filtroProtocolo, setFiltroProtocolo] = useState('');
 
-  // Extrair opções únicas para os selects de filtro
+  // Opções para filtros
   const medicosDisponiveis = useMemo(() => {
     const set = new Set();
     pacientes.forEach(p => { if (p.medico) set.add(p.medico); });
@@ -88,25 +88,20 @@ export default function KanbanBoard({ pacientes = [], onAvancar, onSelectPatient
   // Aplicação dos Filtros
   const pacientesFiltrados = useMemo(() => {
     return pacientes.filter(p => {
-      // Busca por nome ou prontuário
       if (busca) {
         const termo = busca.toLowerCase();
         const nomeMatch = p.nome && p.nome.toLowerCase().includes(termo);
         const prontMatch = p.prontuario && p.prontuario.toLowerCase().includes(termo);
         if (!nomeMatch && !prontMatch) return false;
       }
-      // Filtro por médico
       if (filtroMedico && p.medico !== filtroMedico) return false;
-      // Filtro por turno
       if (filtroTurno && p.turno !== filtroTurno) return false;
-      // Filtro por protocolo
       if (filtroProtocolo && p.protocolo_nome !== filtroProtocolo) return false;
-
       return true;
     });
   }, [pacientes, busca, filtroMedico, filtroTurno, filtroProtocolo]);
 
-  // Agrupamento por etapa do Kanban
+  // Agrupamento por etapa
   const grouped = useMemo(() => {
     const g = {};
     COLUMNS.forEach(col => {
@@ -125,21 +120,21 @@ export default function KanbanBoard({ pacientes = [], onAvancar, onSelectPatient
   };
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3.5">
       
-      {/* Barra de Filtros Avançados da Torre de Controle */}
-      <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-xs">
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+      {/* Barra de Filtros Avançados */}
+      <div className="bg-white border border-slate-200 rounded-2xl p-3.5 shadow-xs">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-2.5">
           
           {/* Busca por Nome / Prontuário */}
           <div className="relative flex-1 min-w-[200px]">
-            <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
+            <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-2.5" />
             <input
               type="text"
               value={busca}
               onChange={(e) => setBusca(e.target.value)}
               placeholder="Buscar por paciente ou prontuário (ex: PAC-069)..."
-              className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-3 py-1.5 text-xs text-slate-900 focus:outline-hidden focus:ring-2 focus:ring-teal-500 placeholder:text-slate-400"
+              className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-8 pr-3 py-1.5 text-xs text-slate-900 focus:outline-hidden focus:ring-2 focus:ring-teal-500 placeholder:text-slate-400"
             />
             {busca && (
               <button 
@@ -219,8 +214,8 @@ export default function KanbanBoard({ pacientes = [], onAvancar, onSelectPatient
         </div>
       </div>
 
-      {/* Grid de Colunas do Kanban (7 Etapas) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7 gap-3.5 items-start overflow-x-auto pb-4">
+      {/* Linha de Colunas do Kanban com Rolagem Suave e Espaçamento Confortável */}
+      <div className="flex gap-3 overflow-x-auto pb-4 items-start scroll-smooth">
         {COLUMNS.map(col => {
           const Icon = col.icon;
           const pacsNaColuna = grouped[col.id] || [];
@@ -228,13 +223,13 @@ export default function KanbanBoard({ pacientes = [], onAvancar, onSelectPatient
           return (
             <div 
               key={col.id}
-              className="bg-slate-100/80 rounded-2xl p-3 border border-slate-200 flex flex-col min-h-[500px]"
+              className="w-[270px] shrink-0 bg-slate-100/75 rounded-2xl p-2.5 border border-slate-200/80 flex flex-col min-h-[490px]"
             >
               {/* Header da Coluna */}
-              <div className="flex items-center justify-between pb-2.5 mb-2.5 border-b border-slate-200/80">
+              <div className="flex items-center justify-between pb-2 mb-2 border-b border-slate-200">
                 <div className="flex items-center gap-1.5">
-                  <Icon className="w-4 h-4 text-slate-700" />
-                  <span className="font-bold text-xs text-slate-800 tracking-tight leading-tight">
+                  <Icon className="w-3.5 h-3.5 text-slate-700 shrink-0" />
+                  <span className="font-bold text-xs text-slate-800 tracking-tight leading-tight truncate">
                     {col.title}
                   </span>
                 </div>
@@ -244,9 +239,9 @@ export default function KanbanBoard({ pacientes = [], onAvancar, onSelectPatient
               </div>
 
               {/* Lista de Cards de Pacientes */}
-              <div className="space-y-3 flex-1 overflow-y-auto pr-0.5 max-h-[calc(100vh-280px)]">
+              <div className="space-y-2.5 flex-1 overflow-y-auto pr-0.5 max-h-[calc(100vh-270px)]">
                 {pacsNaColuna.length === 0 ? (
-                  <div className="h-28 flex flex-col items-center justify-center border border-dashed border-slate-200 rounded-xl text-slate-400 text-xs text-center p-2 bg-white/40">
+                  <div className="h-24 flex flex-col items-center justify-center border border-dashed border-slate-200 rounded-xl text-slate-400 text-xs text-center p-2 bg-white/40">
                     <span>Sem pacientes</span>
                   </div>
                 ) : (

@@ -93,7 +93,7 @@ export default function HojeXProposta() {
       <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2">
-            <h3 className="text-xl font-extrabold text-slate-900 tracking-tight">📊 Hoje × Proposta Sinfonia</h3>
+            <h3 className="text-xl font-extrabold text-slate-900 tracking-tight">Hoje × Proposta Sinfonia</h3>
             <span className="text-xs px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-300 font-bold flex items-center gap-1">
               <Sparkles className="w-3 h-3 text-emerald-600" /> Ganhos Auditados
             </span>

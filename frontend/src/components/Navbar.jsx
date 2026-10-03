@@ -16,23 +16,17 @@ export default function Navbar({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           
-          {/* Logo & Título Sinfonia */}
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-600 to-indigo-600 flex items-center justify-center shadow-md shadow-teal-600/20 text-white font-black text-xl">
-              🎼
-            </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="text-xl font-extrabold tracking-tight text-slate-900">Sinfonia</span>
-                <span className="px-2 py-0.5 text-xs font-bold uppercase tracking-wider rounded-md bg-teal-50 text-teal-700 border border-teal-200">
-                  Fluxo QT
-                </span>
-              </div>
-              <p className="text-xs text-slate-500 hidden sm:block">Orquestração em Tempo Real: Recepção • Capela • Infusão</p>
+          {/* Título Sinfonia (Sem logo e sem subtítulo de orquestração) */}
+          <div className="flex items-center">
+            <div className="flex items-center gap-2">
+              <span className="text-xl font-extrabold tracking-tight text-slate-900">Sinfonia</span>
+              <span className="px-2 py-0.5 text-xs font-bold uppercase tracking-wider rounded-md bg-teal-50 text-teal-700 border border-teal-200">
+                Fluxo QT
+              </span>
             </div>
           </div>
 
-          {/* Navegação entre Abas */}
+          {/* Navegação entre Abas (Gantt posicionado antes de Hoje × Proposta, sem emojis) */}
           <nav className="flex items-center space-x-1 bg-slate-100 p-1 rounded-xl border border-slate-200">
             <button
               onClick={() => setActiveTab('kanban')}
@@ -65,16 +59,6 @@ export default function Navbar({
               Mapa Poltronas
             </button>
             <button
-              onClick={() => setActiveTab('hoje_proposta')}
-              className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all ${
-                activeTab === 'hoje_proposta'
-                  ? 'bg-teal-600 text-white shadow-sm'
-                  : 'text-teal-700 hover:bg-teal-50'
-              }`}
-            >
-              📊 Hoje × Proposta
-            </button>
-            <button
               onClick={() => setActiveTab('gantt')}
               className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all ${
                 activeTab === 'gantt'
@@ -82,7 +66,17 @@ export default function Navbar({
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              📅 Gantt
+              Gantt
+            </button>
+            <button
+              onClick={() => setActiveTab('hoje_proposta')}
+              className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all ${
+                activeTab === 'hoje_proposta'
+                  ? 'bg-teal-600 text-white shadow-sm'
+                  : 'text-teal-700 hover:bg-teal-50'
+              }`}
+            >
+              Hoje × Proposta
             </button>
           </nav>
 
