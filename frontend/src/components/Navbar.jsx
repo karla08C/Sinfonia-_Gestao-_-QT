@@ -1,10 +1,11 @@
 import React from 'react';
-import { Sparkles, UserPlus, AlertTriangle, FileText } from 'lucide-react';
+import { Sparkles, UserPlus, AlertTriangle, FileText, Sliders } from 'lucide-react';
 
 export default function Navbar({ 
   onOpenScheduler, 
   onOpenNewPatient, 
   onOpenImprevisto,
+  onOpenRules,
   activeTab, 
   setActiveTab,
   isSextaFeira,
@@ -16,7 +17,10 @@ export default function Navbar({
         <div className="flex items-center justify-between h-16">
           
           {/* Logo & Título Sinfonia */}
-          <div className="flex items-center">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-600 to-indigo-600 flex items-center justify-center shadow-md shadow-teal-600/20 text-white font-black text-xl">
+              🎼
+            </div>
             <div>
               <div className="flex items-center gap-2">
                 <span className="text-xl font-extrabold tracking-tight text-slate-900">Sinfonia</span>
@@ -28,7 +32,7 @@ export default function Navbar({
             </div>
           </div>
 
-          {/* Navegação entre Abas (Incluindo as do Sinfonia) */}
+          {/* Navegação entre Abas */}
           <nav className="flex items-center space-x-1 bg-slate-100 p-1 rounded-xl border border-slate-200">
             <button
               onClick={() => setActiveTab('kanban')}
@@ -61,16 +65,6 @@ export default function Navbar({
               Mapa Poltronas
             </button>
             <button
-              onClick={() => setActiveTab('gantt')}
-              className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all ${
-                activeTab === 'gantt'
-                  ? 'bg-white text-teal-700 shadow-sm border border-slate-200/80'
-                  : 'text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              📅 Gantt
-            </button>
-            <button
               onClick={() => setActiveTab('hoje_proposta')}
               className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all ${
                 activeTab === 'hoje_proposta'
@@ -80,12 +74,22 @@ export default function Navbar({
             >
               📊 Hoje × Proposta
             </button>
+            <button
+              onClick={() => setActiveTab('gantt')}
+              className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all ${
+                activeTab === 'gantt'
+                  ? 'bg-white text-teal-700 shadow-sm border border-slate-200/80'
+                  : 'text-slate-600 hover:text-slate-900'
+              }`}
+            >
+              📅 Gantt
+            </button>
           </nav>
 
-          {/* Horário & Ações Rápidas */}
+          {/* Ações Clínicas e Parâmetros */}
           <div className="flex items-center gap-2">
             {/* Toggle Sexta-feira */}
-            <label className="hidden xl:flex items-center gap-1.5 text-xs font-bold px-2.5 py-1 rounded-lg border border-slate-200 bg-slate-50 cursor-pointer hover:bg-slate-100">
+            <label className="hidden xl:flex items-center gap-1.5 text-xs font-bold px-2.5 py-1.5 rounded-xl border border-slate-200 bg-slate-50 cursor-pointer hover:bg-slate-100 transition-colors">
               <input
                 type="checkbox"
                 checked={isSextaFeira}
@@ -97,31 +101,43 @@ export default function Navbar({
               </span>
             </label>
 
+            {/* Botão Regras & Parâmetros de Agendamento */}
+            <button
+              onClick={onOpenRules}
+              className="px-2.5 py-1.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 text-xs font-bold border border-slate-200 shadow-2xs transition-all flex items-center gap-1.5"
+              title="Ajustar regras de agendamento, intervalos e novas drogas"
+            >
+              <Sliders className="w-3.5 h-3.5 text-teal-600" />
+              <span className="hidden md:inline">Regras</span>
+            </button>
+
+            {/* Botão Imprevistos */}
             <button
               onClick={onOpenImprevisto}
-              className="px-2.5 py-1.5 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-900 text-xs font-bold border border-amber-300 transition-all flex items-center gap-1"
-              title="Registrar imprevisto clínico"
+              className="px-2.5 py-1.5 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-900 text-xs font-bold border border-amber-300 transition-all flex items-center gap-1.5 shadow-2xs"
+              title="Registrar imprevisto clínico com recálculo em cascata"
             >
               <FileText className="w-3.5 h-3.5 text-amber-700" />
               <span className="hidden sm:inline">Imprevistos</span>
             </button>
 
+            {/* Botão Grade Tetris */}
             <button
               onClick={onOpenScheduler}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold shadow-md shadow-teal-600/20 active:scale-95 transition-all"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold shadow-md shadow-teal-600/20 active:scale-95 transition-all"
             >
               <Sparkles className="w-3.5 h-3.5 text-teal-100" />
               <span className="hidden sm:inline">Grade Tetris</span>
             </button>
 
+            {/* Botão Novo Paciente */}
             <button
               onClick={onOpenNewPatient}
-              className="px-2.5 py-1.5 rounded-lg bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold border border-slate-200 shadow-xs transition-all"
+              className="px-2.5 py-1.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold border border-slate-200 shadow-2xs transition-all flex items-center gap-1"
             >
-              <UserPlus className="w-3.5 h-3.5 text-cyan-600 inline mr-1" />
+              <UserPlus className="w-3.5 h-3.5 text-cyan-600" />
               <span className="hidden sm:inline">Paciente</span>
             </button>
-
           </div>
 
         </div>

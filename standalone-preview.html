@@ -144,7 +144,12 @@
         horario_chegada: '07:20',
         horario_inicio_infusao_real: '08:00',
         minutos_restantes_infusao: 12,
-        alerta_higienizacao: true
+        alerta_higienizacao: true,
+        medico: 'Dra. Camila Torres',
+        turno: 'Manhã',
+        ciclo: 'Ciclo 4/12',
+        acesso_venoso: 'Port-a-Cath',
+        exames_status: 'Exames Liberados'
       },
       {
         id: 2,
@@ -163,7 +168,12 @@
         horario_chegada: '08:00',
         horario_inicio_infusao_real: '09:00',
         minutos_restantes_infusao: 110,
-        alerta_higienizacao: false
+        alerta_higienizacao: false,
+        medico: 'Dr. Roberto Alencar',
+        turno: 'Manhã',
+        ciclo: 'Ciclo 2/6',
+        acesso_venoso: 'Acesso Periférico',
+        exames_status: 'Exames Liberados'
       },
       {
         id: 3,
@@ -182,7 +192,12 @@
         horario_chegada: '08:30',
         horario_inicio_infusao_real: null,
         minutos_restantes_infusao: 60,
-        alerta_higienizacao: false
+        alerta_higienizacao: false,
+        medico: 'Dra. Mariana Rios',
+        turno: 'Manhã',
+        ciclo: 'Ciclo 6/12',
+        acesso_venoso: 'Port-a-Cath',
+        exames_status: 'Exames Liberados'
       },
       {
         id: 4,
@@ -201,12 +216,17 @@
         horario_chegada: '09:00',
         horario_inicio_infusao_real: null,
         minutos_restantes_infusao: 150,
-        alerta_higienizacao: false
+        alerta_higienizacao: false,
+        medico: 'Dr. Roberto Alencar',
+        turno: 'Manhã',
+        ciclo: 'Ciclo 3/4',
+        acesso_venoso: 'Port-a-Cath',
+        exames_status: 'Exames Liberados'
       },
       {
         id: 5,
         nome: 'Helena Silveira Ramos',
-        prontuario: 'PAC-052',
+        prontuario: 'PAC-033',
         status: 'Triagem/Punção',
         protocolo_id: 4,
         protocolo_nome: 'Oxaliplatina + Capecitabina (XELOX)',
@@ -220,13 +240,18 @@
         horario_chegada: '09:40',
         horario_inicio_infusao_real: null,
         minutos_restantes_infusao: 120,
-        alerta_higienizacao: false
+        alerta_higienizacao: false,
+        medico: 'Dra. Camila Torres',
+        turno: 'Manhã',
+        ciclo: 'Ciclo 1/8',
+        acesso_venoso: 'PICC',
+        exames_status: 'Exames Liberados'
       },
       {
         id: 6,
         nome: 'Roberto Mendes de Freitas',
-        prontuario: 'PAC-088',
-        status: 'Aguardando Check-in',
+        prontuario: 'PAC-052',
+        status: 'Consulta Médica', // Nova etapa clínica
         protocolo_id: 1,
         protocolo_nome: 'FOLFIRINOX',
         tipo_droga: 'Citotóxico / Irinotecano + Oxaliplatina',
@@ -239,12 +264,17 @@
         horario_chegada: '10:00',
         horario_inicio_infusao_real: null,
         minutos_restantes_infusao: 360,
-        alerta_higienizacao: false
+        alerta_higienizacao: false,
+        medico: 'Dr. Roberto Alencar',
+        turno: 'Manhã',
+        ciclo: 'Ciclo 5/12',
+        acesso_venoso: 'Port-a-Cath',
+        exames_status: 'Exames Liberados'
       },
       {
         id: 7,
         nome: 'Fernanda Costa Ribeiro',
-        prontuario: 'PAC-033',
+        prontuario: 'PAC-077',
         status: 'Aguardando Check-in',
         protocolo_id: 6,
         protocolo_nome: 'Bortezomibe + Dexametasona',
@@ -255,15 +285,20 @@
         duracao_infusao_min: 30,
         poltrona_id: null,
         poltrona_numero: null,
-        horario_chegada: '10:15',
+        horario_chegada: '13:15',
         horario_inicio_infusao_real: null,
         minutos_restantes_infusao: 30,
-        alerta_higienizacao: false
+        alerta_higienizacao: false,
+        medico: 'Dra. Mariana Rios',
+        turno: 'Tarde',
+        ciclo: 'Ciclo 2/4',
+        acesso_venoso: 'Acesso Periférico',
+        exames_status: 'Aguardando Hemograma'
       },
       {
         id: 8,
         nome: 'Antônio Silva Vasconcelos',
-        prontuario: 'PAC-009',
+        prontuario: 'PAC-088',
         status: 'Alta',
         protocolo_id: 5,
         protocolo_nome: 'Imunoterapia (Pembrolizumabe)',
@@ -277,55 +312,64 @@
         horario_chegada: '07:10',
         horario_inicio_infusao_real: '07:45',
         minutos_restantes_infusao: 0,
-        alerta_higienizacao: false
+        alerta_higienizacao: false,
+        medico: 'Dra. Camila Torres',
+        turno: 'Manhã',
+        ciclo: 'Ciclo 12/12',
+        acesso_venoso: 'Port-a-Cath',
+        exames_status: 'Exames Liberados'
       }
     ];
 
-    // ETAPAS DO KANBAN SINFONIA
+    // ETAPAS DO KANBAN SINFONIA (7 ETAPAS CLÍNICAS)
     const KANBAN_STAGES = [
       { id: 'Aguardando Check-in', title: '1. Recepção / Check-in', color: 'border-blue-200 bg-blue-50/80 text-blue-900', badge: 'bg-blue-100 text-blue-800 border-blue-200' },
-      { id: 'Triagem/Punção', title: '2. Triagem e Punção', color: 'border-indigo-200 bg-indigo-50/80 text-indigo-900', badge: 'bg-indigo-100 text-indigo-800 border-indigo-200' },
-      { id: 'Em Manipulação', title: '3. Capela Manipulando', color: 'border-amber-200 bg-amber-50/80 text-amber-900', badge: 'bg-amber-100 text-amber-800 border-amber-200' },
-      { id: 'Pronto para Infundir', title: '4. Bolsa a Caminho', color: 'border-emerald-200 bg-emerald-50/80 text-emerald-900', badge: 'bg-emerald-100 text-emerald-800 border-emerald-200' },
-      { id: 'Em Infusão', title: '5. Poltrona em Infusão', color: 'border-teal-200 bg-teal-50/80 text-teal-900', badge: 'bg-teal-100 text-teal-800 border-teal-200' },
-      { id: 'Alta', title: '6. Finalizado / Alta', color: 'border-slate-200 bg-slate-100 text-slate-800', badge: 'bg-slate-200 text-slate-700 border-slate-300' }
+      { id: 'Consulta Médica', title: '2. Consulta & Liberação', color: 'border-purple-200 bg-purple-50/80 text-purple-900', badge: 'bg-purple-100 text-purple-800 border-purple-200' },
+      { id: 'Triagem/Punção', title: '3. Triagem e Punção', color: 'border-indigo-200 bg-indigo-50/80 text-indigo-900', badge: 'bg-indigo-100 text-indigo-800 border-indigo-200' },
+      { id: 'Em Manipulação', title: '4. Capela Manipulando', color: 'border-amber-200 bg-amber-50/80 text-amber-900', badge: 'bg-amber-100 text-amber-800 border-amber-200' },
+      { id: 'Pronto para Infundir', title: '5. Bolsa a Caminho', color: 'border-emerald-200 bg-emerald-50/80 text-emerald-900', badge: 'bg-emerald-100 text-emerald-800 border-emerald-200' },
+      { id: 'Em Infusão', title: '6. Poltrona em Infusão', color: 'border-teal-200 bg-teal-50/80 text-teal-900', badge: 'bg-teal-100 text-teal-800 border-teal-200' },
+      { id: 'Alta', title: '7. Finalizado / Alta', color: 'border-slate-200 bg-slate-100 text-slate-800', badge: 'bg-slate-200 text-slate-700 border-slate-300' }
     ];
 
     const NEXT_LABELS = {
-      'Aguardando Check-in': { label: 'Enviar Triagem', color: 'bg-blue-600 hover:bg-blue-700 text-white' },
-      'Triagem/Punção': { label: 'Enviar Capela', color: 'bg-amber-600 hover:bg-amber-700 text-white' },
-      'Em Manipulação': { label: 'Liberar Bolsa', color: 'bg-emerald-600 hover:bg-emerald-700 text-white' },
+      'Aguardando Check-in': { label: 'Encaminhar Consulta', color: 'bg-blue-600 hover:bg-blue-700 text-white' },
+      'Consulta Médica': { label: 'Liberar p/ Triagem', color: 'bg-purple-600 hover:bg-purple-700 text-white' },
+      'Triagem/Punção': { label: 'Enviar p/ Capela', color: 'bg-indigo-600 hover:bg-indigo-700 text-white' },
+      'Em Manipulação': { label: 'Liberar Bolsa', color: 'bg-amber-600 hover:bg-amber-700 text-white' },
       'Pronto para Infundir': { label: 'Iniciar Infusão', color: 'bg-teal-600 hover:bg-teal-700 text-white' },
       'Em Infusão': { label: 'Concluir Alta', color: 'bg-slate-700 hover:bg-slate-800 text-white' }
     };
 
     function App() {
-      const [pacientes, setPacientes] = useState(() => {
-        const saved = localStorage.getItem('sinfonia_pacientes');
-        return saved ? JSON.parse(saved) : SEED_PACIENTES;
+      const [pacientes, setPacientes] = useState(SEED_PACIENTES);
+      const [poltronas, setPoltronas] = useState(SEED_POLTRONAS);
+      const [capelas, setCapelas] = useState(SEED_CAPELAS);
+      const [protocolos, setProtocolos] = useState(SEED_PROTOCOLOS);
+
+      // Regras de Agendamento
+      const [regras, setRegras] = useState({
+        tempo_higienizacao_min: 15,
+        tempo_transporte_bolsa_min: 15,
+        tempo_acomodacao_min: 10,
+        inicio_turno_manha: '07:00',
+        inicio_turno_tarde: '12:30'
       });
-      const [poltronas, setPoltronas] = useState(() => {
-        const saved = localStorage.getItem('sinfonia_poltronas');
-        return saved ? JSON.parse(saved) : SEED_POLTRONAS;
-      });
-      const [capelas, setCapelas] = useState(() => {
-        const saved = localStorage.getItem('sinfonia_capelas');
-        return saved ? JSON.parse(saved) : SEED_CAPELAS;
-      });
+
+      // Filtros da Torre de Controle
+      const [busca, setBusca] = useState('');
+      const [filtroMedico, setFiltroMedico] = useState('');
+      const [filtroTurno, setFiltroTurno] = useState('');
+      const [filtroProtocolo, setFiltroProtocolo] = useState('');
 
       const [activeTab, setActiveTab] = useState('kanban'); // 'kanban' | 'capela' | 'poltronas' | 'hoje_proposta' | 'gantt'
       const [isSextaFeira, setIsSextaFeira] = useState(false);
       const [isSchedulerOpen, setIsSchedulerOpen] = useState(false);
       const [isNewPatientOpen, setIsNewPatientOpen] = useState(false);
       const [isImprevistoOpen, setIsImprevistoOpen] = useState(false);
+      const [isRulesOpen, setIsRulesOpen] = useState(false);
       const [toast, setToast] = useState(null);
       const [currentTime, setCurrentTime] = useState('');
-
-      useEffect(() => {
-        localStorage.setItem('sinfonia_pacientes', JSON.stringify(pacientes));
-        localStorage.setItem('sinfonia_poltronas', JSON.stringify(poltronas));
-        localStorage.setItem('sinfonia_capelas', JSON.stringify(capelas));
-      }, [pacientes, poltronas, capelas, activeTab]);
 
       useEffect(() => {
         const tick = () => {
@@ -371,7 +415,23 @@
         };
       }, [pacientes, poltronas, capelas]);
 
-      // AVANÇAR ETAPA KANBAN COM 1 CLIQUE
+      // Filtro dinâmico de pacientes
+      const pacientesFiltrados = useMemo(() => {
+        return pacientes.filter(p => {
+          if (busca) {
+            const termo = busca.toLowerCase();
+            const nomeMatch = p.nome && p.nome.toLowerCase().includes(termo);
+            const prontMatch = p.prontuario && p.prontuario.toLowerCase().includes(termo);
+            if (!nomeMatch && !prontMatch) return false;
+          }
+          if (filtroMedico && p.medico !== filtroMedico) return false;
+          if (filtroTurno && p.turno !== filtroTurno) return false;
+          if (filtroProtocolo && p.protocolo_nome !== filtroProtocolo) return false;
+          return true;
+        });
+      }, [pacientes, busca, filtroMedico, filtroTurno, filtroProtocolo]);
+
+      // AVANÇAR ETAPA KANBAN COM 1 CLIQUE (7 ETAPAS)
       const avancarEtapa = (pacienteId) => {
         const stages = KANBAN_STAGES.map(s => s.id);
         const pac = pacientes.find(p => p.id === pacienteId);
@@ -460,90 +520,53 @@
           }
           return p;
         }));
-        showToast(`Poltrona higienizada e liberada com sucesso!`);
+        showToast('Poltrona higienizada e liberada para o próximo paciente!');
       };
 
-      // FARMÁCIA: INICIAR PREPARO
+      // FARMÁCIA: INICIAR PREPARO CAPELA
       const iniciarPreparoCapela = (pacienteId) => {
-        const pac = pacientes.find(p => p.id === pacienteId);
-        if (!pac) return;
+        const item = pacientes.find(p => p.id === pacienteId) || pacientes.find(p => p.status === 'Triagem/Punção');
+        if (!item) return;
 
         setCapelas(prev => prev.map(c => ({
           ...c,
           status: 'Manipulando',
-          paciente_atual_id: pac.id,
-          paciente_nome: pac.nome,
-          protocolo_nome: pac.protocolo_nome,
-          tipo_droga: pac.tipo_droga,
-          duracao_manipulacao_min: pac.duracao_manipulacao_min
+          paciente_atual_id: item.id,
+          paciente_nome: item.nome,
+          protocolo_nome: item.protocolo_nome,
+          tipo_droga: item.tipo_droga,
+          duracao_manipulacao_min: item.duracao_manipulacao_min
         })));
 
-        setPacientes(prev => prev.map(p => p.id === pacienteId ? { ...p, status: 'Em Manipulação' } : p));
-        showToast(`Manipulação iniciada na Capela de Fluxo Laminar!`);
+        setPacientes(prev => prev.map(p => p.id === item.id ? { ...p, status: 'Em Manipulação' } : p));
+        showToast(`Manipulação iniciada na Capela para ${item.nome}!`);
       };
 
-      // FARMÁCIA: CONCLUIR E LIBERAR BOLSA
+      // FARMÁCIA: CONCLUIR PREPARO E LIBERAR BOLSA
       const concluirPreparoCapela = (pacienteId) => {
         const targetId = pacienteId || capelas[0]?.paciente_atual_id;
+        const pac = pacientes.find(p => p.id === targetId);
+
         setCapelas(prev => prev.map(c => ({
           ...c,
           status: 'Disponível',
           paciente_atual_id: null,
           paciente_nome: null,
-          protocolo_nome: null,
-          tipo_droga: null
+          protocolo_nome: null
         })));
 
-        setPacientes(prev => prev.map(p => p.id === targetId ? { ...p, status: 'Pronto para Infundir' } : p));
-        showToast('Bolsa concluída com sucesso! Encaminhada para "Bolsa a Caminho".');
-      };
-
-      // RESETAR DEMO
-      const resetDemo = () => {
-        if (confirm('Restaurar dados iniciais do Sinfonia?')) {
-          setPacientes([...SEED_PACIENTES]);
-          setPoltronas([...SEED_POLTRONAS]);
-          setCapelas([...SEED_CAPELAS]);
-          showToast('Dados restaurados!');
+        if (pac) {
+          setPacientes(prev => prev.map(p => p.id === pac.id ? { ...p, status: 'Pronto para Infundir' } : p));
+          showToast(`Bolsa de ${pac.nome} pronta! Encaminhada para "Bolsa a Caminho".`);
         }
-      };
-
-      // SIMULAR +15 MINUTOS NAS INFUSÕES (TESTAR ALERTA AMARELO)
-      const simularAvancoTempo = () => {
-        setPacientes(prev => prev.map(p => {
-          if (p.status === 'Em Infusão' && p.minutos_restantes_infusao > 0) {
-            const novo = Math.max(0, p.minutos_restantes_infusao - 15);
-            return {
-              ...p,
-              minutos_restantes_infusao: novo,
-              alerta_higienizacao: novo <= 15
-            };
-          }
-          return p;
-        }));
-        setPoltronas(prev => prev.map(polt => {
-          if (polt.status === 'Ocupada' && polt.minutos_restantes_infusao > 0) {
-            const novo = Math.max(0, polt.minutos_restantes_infusao - 15);
-            const trans = Math.max(0, polt.duracao_infusao_min - novo);
-            const prog = Math.min(100, Math.round((trans / polt.duracao_infusao_min) * 100));
-            return {
-              ...polt,
-              minutos_restantes_infusao: novo,
-              progresso_pct: prog,
-              alerta_higienizacao: novo <= 15
-            };
-          }
-          return polt;
-        }));
-        showToast('Avançados 15 minutos nas infusões ativas!');
       };
 
       // Fila da Capela
       const filaCapela = useMemo(() => {
         return pacientes
-          .filter(p => ['Triagem/Punção', 'Em Manipulação', 'Aguardando Check-in'].includes(p.status))
+          .filter(p => ['Triagem/Punção', 'Em Manipulação', 'Consulta Médica', 'Aguardando Check-in'].includes(p.status))
           .sort((a, b) => {
-            const rank = { 'Em Manipulação': 1, 'Triagem/Punção': 2, 'Aguardando Check-in': 3 };
+            const rank = { 'Em Manipulação': 1, 'Triagem/Punção': 2, 'Consulta Médica': 3, 'Aguardando Check-in': 4 };
             return rank[a.status] - rank[b.status];
           });
       }, [pacientes]);
@@ -555,25 +578,22 @@
           
           {/* TOAST FEEDBACK */}
           {toast && (
-            <div className="fixed bottom-6 right-6 z-50 bg-emerald-600 text-white px-4 py-3 rounded-2xl shadow-xl text-sm font-semibold flex items-center gap-2 animate-bounce">
+            <div className="fixed bottom-6 right-6 z-50 bg-teal-600 text-white px-4 py-3 rounded-2xl shadow-xl text-sm font-semibold flex items-center gap-2 animate-bounce">
               <span className="w-2 h-2 rounded-full bg-white"></span>
               <span>{toast}</span>
             </div>
           )}
-
-          {/* FAIXA INSTITUCIONAL SINFONIA */}
-          <div className="bg-slate-900 text-slate-300 px-4 py-1.5 text-center text-xs flex items-center justify-center gap-2 font-medium">
-            <span><strong>Sinfonia</strong> </span>
-            <span className="hidden md:inline text-slate-500">•</span>
-          </div>
 
           {/* NAVBAR HOSPITALAR SINFONIA */}
           <header className="bg-white/95 backdrop-blur border-b border-slate-200 sticky top-0 z-40 shadow-xs">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex items-center justify-between h-16">
                 
-                {/* Brand */}
-                <div className="flex items-center">
+                {/* Logo Sinfonia */}
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-600 to-indigo-600 flex items-center justify-center shadow-md shadow-teal-600/20 text-white font-black text-xl">
+                    🎼
+                  </div>
                   <div>
                     <div className="flex items-center gap-2">
                       <span className="text-xl font-extrabold tracking-tight text-slate-900">Sinfonia</span>
@@ -581,16 +601,18 @@
                         Fluxo QT
                       </span>
                     </div>
-                    <p className="text-xs text-slate-500 hidden sm:block"> Controle em Tempo Real: Recepção • Capela • Infusão</p>
+                    <p className="text-xs text-slate-500 hidden sm:block">Orquestração em Tempo Real: Recepção • Capela • Infusão</p>
                   </div>
                 </div>
 
-                {/* Abas Expandidas (Com as Funcionalidades do Sinfonia) */}
+                {/* Abas */}
                 <nav className="flex items-center space-x-1 bg-slate-100 p-1 rounded-xl border border-slate-200">
                   <button
                     onClick={() => setActiveTab('kanban')}
                     className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all ${
-                      activeTab === 'kanban' ? 'bg-white text-teal-700 shadow-sm border border-slate-200' : 'text-slate-600 hover:text-slate-900'
+                      activeTab === 'kanban'
+                        ? 'bg-white text-teal-700 shadow-sm border border-slate-200/80'
+                        : 'text-slate-600 hover:text-slate-900'
                     }`}
                   >
                     Torre de Controle
@@ -598,7 +620,9 @@
                   <button
                     onClick={() => setActiveTab('capela')}
                     className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all ${
-                      activeTab === 'capela' ? 'bg-white text-teal-700 shadow-sm border border-slate-200' : 'text-slate-600 hover:text-slate-900'
+                      activeTab === 'capela'
+                        ? 'bg-white text-teal-700 shadow-sm border border-slate-200/80'
+                        : 'text-slate-600 hover:text-slate-900'
                     }`}
                   >
                     Visão Capela
@@ -606,7 +630,9 @@
                   <button
                     onClick={() => setActiveTab('poltronas')}
                     className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all ${
-                      activeTab === 'poltronas' ? 'bg-white text-teal-700 shadow-sm border border-slate-200' : 'text-slate-600 hover:text-slate-900'
+                      activeTab === 'poltronas'
+                        ? 'bg-white text-teal-700 shadow-sm border border-slate-200/80'
+                        : 'text-slate-600 hover:text-slate-900'
                     }`}
                   >
                     Mapa Poltronas
@@ -614,25 +640,28 @@
                   <button
                     onClick={() => setActiveTab('hoje_proposta')}
                     className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all ${
-                      activeTab === 'hoje_proposta' ? 'bg-teal-600 text-white shadow-sm' : 'text-teal-700 hover:bg-teal-50'
+                      activeTab === 'hoje_proposta'
+                        ? 'bg-teal-600 text-white shadow-sm'
+                        : 'text-teal-700 hover:bg-teal-50'
                     }`}
                   >
-                     Hoje × Proposta
+                    📊 Hoje × Proposta
                   </button>
                   <button
                     onClick={() => setActiveTab('gantt')}
                     className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all ${
-                      activeTab === 'gantt' ? 'bg-white text-teal-700 shadow-sm border border-slate-200' : 'text-slate-600 hover:text-slate-900'
+                      activeTab === 'gantt'
+                        ? 'bg-white text-teal-700 shadow-sm border border-slate-200/80'
+                        : 'text-slate-600 hover:text-slate-900'
                     }`}
                   >
-                     Gantt da Agenda
+                    📅 Gantt
                   </button>
                 </nav>
 
-                {/* Ações & Toggle Sexta-feira */}
+                {/* Ações */}
                 <div className="flex items-center gap-2">
-                  {/* Toggle Sexta-feira do Sinfonia */}
-                  <label className="hidden lg:flex items-center gap-1.5 text-xs font-bold px-2.5 py-1 rounded-lg border border-slate-200 bg-slate-50 cursor-pointer hover:bg-slate-100">
+                  <label className="hidden xl:flex items-center gap-1.5 text-xs font-bold px-2.5 py-1.5 rounded-xl border border-slate-200 bg-slate-50 cursor-pointer hover:bg-slate-100 transition-colors">
                     <input
                       type="checkbox"
                       checked={isSextaFeira}
@@ -643,38 +672,38 @@
                       className="rounded text-teal-600 focus:ring-teal-500"
                     />
                     <span className={isSextaFeira ? 'text-amber-800' : 'text-slate-600'}>
-                      {isSextaFeira ? '⚠️ Sexta-feira (-1h)' : 'Sexta-feira'}
+                      {isSextaFeira ? '⚠️ Sexta (-1h)' : 'Sexta-feira'}
                     </span>
                   </label>
 
                   <button
-                    onClick={() => setIsImprevistoOpen(true)}
-                    className="px-3 py-1.5 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-900 text-xs font-bold border border-amber-300 transition-all flex items-center gap-1"
-                    title="Registrar imprevisto clínico (atraso, falta, término real)"
+                    onClick={() => setIsRulesOpen(true)}
+                    className="px-2.5 py-1.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 text-xs font-bold border border-slate-200 shadow-2xs transition-all flex items-center gap-1"
+                    title="Ajustar tempos de intervalo, turnos e novas drogas"
                   >
-                     <span>Imprevistos</span>
+                    <span>⚙️ Regras</span>
+                  </button>
+
+                  <button
+                    onClick={() => setIsImprevistoOpen(true)}
+                    className="px-2.5 py-1.5 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-900 text-xs font-bold border border-amber-300 transition-all flex items-center gap-1 shadow-2xs"
+                    title="Registrar imprevisto clínico"
+                  >
+                    <span>Imprevistos</span>
                   </button>
 
                   <button
                     onClick={() => setIsSchedulerOpen(true)}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold shadow-md shadow-teal-600/20 active:scale-95 transition-all"
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold shadow-md shadow-teal-600/20 active:scale-95 transition-all"
                   >
-                     <span>Grade Tetris</span>
+                    <span>Grade Tetris</span>
                   </button>
 
                   <button
                     onClick={() => setIsNewPatientOpen(true)}
-                    className="px-3 py-1.5 rounded-lg bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold border border-slate-200 shadow-xs transition-all"
+                    className="px-2.5 py-1.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold border border-slate-200 shadow-2xs transition-all"
                   >
                     + Paciente
-                  </button>
-
-                  <button
-                    onClick={resetDemo}
-                    className="p-1.5 rounded-lg bg-white hover:bg-slate-50 text-slate-500 hover:text-amber-600 border border-slate-200 text-xs shadow-xs"
-                    title="Resetar Demonstração"
-                  >
-                    🔄
                   </button>
                 </div>
 
@@ -698,23 +727,21 @@
               </div>
 
               <div className="bg-white border border-slate-200/90 rounded-2xl p-4 shadow-xs hover:shadow-md transition-shadow">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Tempo Porta-Agulha</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Tempo de Espera Poltrona</span>
                 <div className="mt-2 flex items-baseline gap-2 font-mono">
-                  <span className="text-3xl font-extrabold text-slate-900">{kpis.portaAgulha} <span className="text-lg font-normal text-slate-500">min</span></span>
-                  <span className="text-xs text-emerald-700 font-bold px-1.5 py-0.5 rounded bg-emerald-50 border border-emerald-200 font-sans">-42% via JIT</span>
+                  <span className="text-3xl font-extrabold text-teal-700">&lt; 15 min</span>
+                  <span className="text-xs text-teal-600 font-bold font-sans">Meta Atingida</span>
                 </div>
-                <p className="text-xs text-slate-400 mt-1">Chegada até a punção venosa</p>
+                <p className="text-xs text-slate-400 mt-1">Bolsa pronta quando o paciente senta</p>
               </div>
 
               <div className="bg-white border border-slate-200/90 rounded-2xl p-4 shadow-xs hover:shadow-md transition-shadow">
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Ocupação das Poltronas</span>
                 <div className="mt-2 flex items-baseline gap-2 font-mono">
                   <span className="text-3xl font-extrabold text-slate-900">{kpis.taxaOcupacao}%</span>
-                  <span className="text-xs text-slate-500">({kpis.ocupadas}/{kpis.totalPolts} ativas)</span>
+                  <span className="text-xs text-slate-500 font-sans">({kpis.ocupadas}/{kpis.totalPolts} ativas)</span>
                 </div>
-                <div className="w-full bg-slate-100 rounded-full h-2 mt-2.5 overflow-hidden">
-                  <div className="bg-teal-600 h-2 rounded-full" style={{ width: `${kpis.taxaOcupacao}%` }} />
-                </div>
+                <p className="text-xs text-slate-400 mt-1">Giro de leito com 15 min de limpeza</p>
               </div>
 
               <div className="bg-white border border-slate-200/90 rounded-2xl p-4 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between">
@@ -740,44 +767,81 @@
 
             </div>
 
-            {/* BARRA DE DEMONSTRAÇÃO E SEXTA-FEIRA */}
-            <div className="mb-6 flex flex-wrap items-center justify-between gap-3 p-3.5 rounded-2xl bg-white border border-slate-200 text-xs shadow-xs">
-              <div className="flex items-center gap-2 text-slate-600 font-medium">
-                <span className="w-2.5 h-2.5 rounded-full bg-teal-500 animate-pulse"></span>
-                <span>Orquestração Sinfonia: <strong>Recepção</strong> ➔ <strong>Capela (Farmácia)</strong> ➔ <strong>Poltronas</strong></span>
-                {isSextaFeira && (
-                  <span className="px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-bold border border-amber-300 ml-2">
-                    Sexta-feira ativa: limite de protocolos reduzido em 1h
-                  </span>
-                )}
-              </div>
-              <button
-                onClick={simularAvancoTempo}
-                className="px-3.5 py-1.5 rounded-lg bg-teal-50 hover:bg-teal-100 text-teal-800 font-bold border border-teal-200 transition-all flex items-center gap-1.5 shadow-2xs"
-              >
-                 <span>Simular +15min QT (Testar Alerta Amarelo)</span>
-              </button>
-            </div>
-
-            {/* ABA 1: TORRE DE CONTROLE (KANBAN) */}
+            {/* ABA 1: TORRE DE CONTROLE (KANBAN COM FILTROS E 7 ETAPAS) */}
             {activeTab === 'kanban' && (
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-lg font-bold text-slate-900 tracking-tight">
-                    Torre de Controle (Kanban em Tempo Real)
-                  </h2>
-                  <span className="text-xs text-slate-500 font-medium">
-                    Avanço com 1 clique • Alerta amarelo nos últimos 15 min de QT
-                  </span>
+              <div className="space-y-4">
+                
+                {/* BARRA DE FILTROS AVANÇADOS */}
+                <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-xs flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+                  {/* Busca */}
+                  <div className="relative flex-1 min-w-[220px]">
+                    <span className="absolute left-3 top-2.5 text-slate-400 text-xs">🔍</span>
+                    <input
+                      type="text"
+                      value={busca}
+                      onChange={(e) => setBusca(e.target.value)}
+                      placeholder="Buscar por paciente ou prontuário (ex: PAC-069)..."
+                      className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-8 pr-3 py-1.5 text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                    />
+                  </div>
+
+                  {/* Filtros em Select */}
+                  <div className="flex flex-wrap items-center gap-2">
+                    <select
+                      value={filtroMedico}
+                      onChange={(e) => setFiltroMedico(e.target.value)}
+                      className="bg-slate-50 border border-slate-200 rounded-xl px-2.5 py-1.5 text-xs text-slate-700 font-semibold focus:outline-none"
+                    >
+                      <option value="">Médico: Todos</option>
+                      <option value="Dra. Camila Torres">Dra. Camila Torres</option>
+                      <option value="Dr. Roberto Alencar">Dr. Roberto Alencar</option>
+                      <option value="Dra. Mariana Rios">Dra. Mariana Rios</option>
+                    </select>
+
+                    <select
+                      value={filtroTurno}
+                      onChange={(e) => setFiltroTurno(e.target.value)}
+                      className="bg-slate-50 border border-slate-200 rounded-xl px-2.5 py-1.5 text-xs text-slate-700 font-semibold focus:outline-none"
+                    >
+                      <option value="">Turno: Todos</option>
+                      <option value="Manhã">☀️ Manhã</option>
+                      <option value="Tarde">🌙 Tarde</option>
+                    </select>
+
+                    <select
+                      value={filtroProtocolo}
+                      onChange={(e) => setFiltroProtocolo(e.target.value)}
+                      className="bg-slate-50 border border-slate-200 rounded-xl px-2.5 py-1.5 text-xs text-slate-700 font-semibold focus:outline-none"
+                    >
+                      <option value="">Protocolo: Todos</option>
+                      {protocolos.map(p => (
+                        <option key={p.id} value={p.nome}>{p.nome}</option>
+                      ))}
+                    </select>
+
+                    {(busca || filtroMedico || filtroTurno || filtroProtocolo) && (
+                      <button
+                        onClick={() => { setBusca(''); setFiltroMedico(''); setFiltroTurno(''); setFiltroProtocolo(''); }}
+                        className="px-2.5 py-1 rounded-xl bg-rose-50 text-rose-700 text-xs font-bold hover:bg-rose-100 transition-colors"
+                      >
+                        ✕ Limpar
+                      </button>
+                    )}
+
+                    <span className="text-[11px] font-mono text-slate-500 font-semibold pl-2">
+                      {pacientesFiltrados.length} de {pacientes.length} pac.
+                    </span>
+                  </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 items-start overflow-x-auto pb-4">
+                {/* COLUNAS KANBAN (7 ETAPAS) */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7 gap-3.5 items-start overflow-x-auto pb-4">
                   {KANBAN_STAGES.map(stage => {
-                    const colPacientes = pacientes.filter(p => p.status === stage.id);
+                    const colPacientes = pacientesFiltrados.filter(p => p.status === stage.id);
                     const nextAct = NEXT_LABELS[stage.id];
 
                     return (
-                      <div key={stage.id} className="bg-slate-100/80 rounded-2xl border border-slate-200 p-3 min-w-[245px] min-h-[480px]">
+                      <div key={stage.id} className="bg-slate-100/80 rounded-2xl border border-slate-200 p-3 min-w-[210px] min-h-[500px]">
                         <div className={`p-2.5 rounded-xl border mb-3 flex items-center justify-between shadow-2xs ${stage.color}`}>
                           <span className="font-bold text-xs">{stage.title}</span>
                           <span className={`text-[10px] font-mono font-bold px-1.5 py-0.5 rounded border ${stage.badge}`}>
@@ -788,7 +852,7 @@
                         <div className="space-y-3">
                           {colPacientes.length === 0 ? (
                             <div className="h-28 rounded-xl border border-dashed border-slate-300 flex items-center justify-center text-xs text-slate-400">
-                              Nenhum paciente
+                              Sem pacientes
                             </div>
                           ) : (
                             colPacientes.map(pac => {
@@ -801,40 +865,63 @@
                               return (
                                 <div
                                   key={pac.id}
-                                  className={`rounded-xl p-3.5 shadow-xs transition-all ${
+                                  className={`rounded-2xl p-3.5 shadow-xs transition-all ${
                                     isAlerta
                                       ? 'border-2 border-amber-400 bg-amber-50 ring-2 ring-amber-300 shadow-md animate-pulse-fast'
                                       : isInfusao
                                       ? 'bg-white border-2 border-teal-300 shadow-xs'
-                                      : 'bg-white border border-slate-200/90 hover:border-slate-300'
+                                      : 'bg-white border border-slate-200 hover:border-slate-300'
                                   }`}
                                 >
                                   {isAlerta && (
-                                    <div className="mb-2.5 px-2.5 py-1.5 rounded-lg bg-amber-400 text-slate-950 font-black text-[11px] flex items-center justify-between shadow-xs">
+                                    <div className="mb-2 px-2 py-1 rounded-lg bg-amber-400 text-slate-950 font-black text-[11px] flex items-center justify-between shadow-xs">
                                       <span>⚠️ ACIONAR HIGIENIZAÇÃO!</span>
                                       <span className="font-mono">{minsRest}m</span>
                                     </div>
                                   )}
 
-                                  <div className="flex items-start justify-between">
-                                    <h4 className="font-bold text-sm text-slate-900 leading-tight">{pac.nome}</h4>
-                                  </div>
-                                  <div className="flex items-center gap-1.5 mt-0.5">
-                                    <span className="text-[11px] font-mono text-slate-500">
-                                      Pront: <strong className="text-slate-700 font-bold">{pac.prontuario}</strong>
-                                    </span>
-                                    <span className="text-[10px] text-slate-400 font-mono">
-                                      • Limite: {pac.horarioLimite || '14:00'}
+                                  {/* Badges de Turno e Ciclo */}
+                                  <div className="flex items-center justify-between gap-1 mb-1.5">
+                                    <div className="flex items-center gap-1">
+                                      {pac.turno && (
+                                        <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded border ${
+                                          pac.turno === 'Manhã' ? 'bg-amber-50 text-amber-800 border-amber-200' : 'bg-indigo-50 text-indigo-800 border-indigo-200'
+                                        }`}>
+                                          ☀️ {pac.turno}
+                                        </span>
+                                      )}
+                                      {pac.ciclo && (
+                                        <span className="text-[9px] font-mono font-bold px-1 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200">
+                                          {pac.ciclo}
+                                        </span>
+                                      )}
+                                    </div>
+                                    <span className="text-[9px] font-mono text-slate-500 font-bold">
+                                      {pac.horario_chegada}
                                     </span>
                                   </div>
 
-                                  <div className="mt-2.5 bg-slate-50 p-2 rounded-lg border border-slate-200/70">
+                                  <div className="flex items-start justify-between">
+                                    <h4 className="font-bold text-sm text-slate-900 leading-tight">{pac.nome}</h4>
+                                  </div>
+
+                                  <div className="flex items-center justify-between mt-1 text-[11px]">
+                                    <span className="font-mono text-slate-500 font-bold">{pac.prontuario}</span>
+                                    {pac.medico && (
+                                      <span className="text-slate-600 truncate max-w-[110px]" title={pac.medico}>
+                                        🩺 {pac.medico}
+                                      </span>
+                                    )}
+                                  </div>
+
+                                  <div className="mt-2 bg-slate-50 p-2 rounded-xl border border-slate-200/80">
                                     <div className="flex items-center justify-between text-xs">
                                       <span className="font-bold text-teal-800 truncate">{pac.protocolo_nome}</span>
-                                      <span className="font-mono text-[10px] text-slate-500 font-semibold">{pac.duracao_infusao_min}m QT</span>
+                                      <span className="font-mono text-[10px] text-slate-500 font-semibold">{pac.duracao_infusao_min}m</span>
                                     </div>
-                                    <div className="text-[10px] text-slate-400 mt-0.5">
-                                      Folha: <strong className="text-slate-600">{pac.corFolha || 'Normal'}</strong>
+                                    <div className="text-[10px] text-slate-400 mt-0.5 flex justify-between">
+                                      <span>{pac.acesso_venoso || 'Port-a-Cath'}</span>
+                                      <span className="text-emerald-700 font-bold">✓ Exames OK</span>
                                     </div>
                                   </div>
 
@@ -863,14 +950,14 @@
                                   {nextAct && (
                                     <button
                                       onClick={() => avancarEtapa(pac.id)}
-                                      className={`w-full mt-3 py-1.5 px-3 rounded-lg text-xs font-bold transition-all shadow-xs active:scale-95 ${nextAct.color}`}
+                                      className={`w-full mt-3 py-1.5 px-3 rounded-xl text-xs font-bold transition-all shadow-xs active:scale-95 ${nextAct.color}`}
                                     >
                                       {nextAct.label} ➔
                                     </button>
                                   )}
 
                                   {pac.status === 'Alta' && (
-                                    <div className="mt-2.5 py-1 text-center text-xs font-bold text-emerald-800 bg-emerald-50 rounded-lg border border-emerald-200">
+                                    <div className="mt-2.5 py-1 text-center text-xs font-bold text-emerald-800 bg-emerald-50 rounded-xl border border-emerald-200">
                                       ✓ Alta Concedida
                                     </div>
                                   )}
@@ -1107,11 +1194,9 @@
               </div>
             )}
 
-            {/* ABA 4: HOJE × PROPOSTA (FUNCIONALIDADE SINFONIA) */}
+            {/* ABA 4: HOJE × PROPOSTA */}
             {activeTab === 'hoje_proposta' && (
               <div className="space-y-6 animate-in fade-in">
-                
-                {/* Cabeçalho */}
                 <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-xs">
                   <h3 className="text-xl font-extrabold text-slate-900 flex items-center gap-2">
                     <span>📊 Hoje × Proposta Sinfonia</span>
@@ -1124,7 +1209,6 @@
                   </p>
                 </div>
 
-                {/* Tabela de Indicadores Lado a Lado (Sinfonia) */}
                 <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-xs overflow-hidden">
                   <h4 className="font-bold text-sm text-slate-900 mb-3">Tabela de Indicadores: Cenário Atual vs. Proposta</h4>
                   <div className="overflow-x-auto">
@@ -1179,12 +1263,8 @@
                   </div>
                 </div>
 
-                {/* Histórias dos Pacientes (O Que Melhorou) */}
                 <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-xs">
-                  <h4 className="font-bold text-sm text-slate-900 mb-3 flex items-center gap-2">
-                    <span>💚 Histórias Reais: O Que Melhorou para o Paciente</span>
-                  </h4>
-
+                  <h4 className="font-bold text-sm text-slate-900 mb-3">💚 Histórias Reais: O Que Melhorou para o Paciente</h4>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div className="p-4 rounded-xl bg-teal-50/60 border border-teal-200">
                       <div className="flex items-center justify-between mb-2">
@@ -1226,11 +1306,10 @@
                     </div>
                   </div>
                 </div>
-
               </div>
             )}
 
-            {/* ABA 5: GANTT DA AGENDA (FUNCIONALIDADE SINFONIA) */}
+            {/* ABA 5: GANTT DA AGENDA */}
             {activeTab === 'gantt' && (
               <div className="space-y-6 animate-in fade-in">
                 <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-xs">
@@ -1246,16 +1325,13 @@
                     </div>
                   </div>
 
-                  {/* Visualização de Gantt */}
                   <div className="mt-6 border border-slate-200 rounded-xl p-4 overflow-x-auto bg-slate-50/50">
                     <div className="min-w-[700px] space-y-4">
-                      {/* Régua de Horas */}
                       <div className="grid grid-cols-12 text-[10px] font-mono text-slate-400 font-bold border-b border-slate-200 pb-2">
                         <span>07:00</span><span>08:00</span><span>09:00</span><span>10:00</span><span>11:00</span><span>12:00</span>
                         <span>13:00</span><span>14:00</span><span>15:00</span><span>16:00</span><span>17:00</span><span>18:00</span>
                       </div>
 
-                      {/* Capela Gantt */}
                       <div className="space-y-1">
                         <span className="text-xs font-bold text-slate-700 block">Capela Fluxo Laminar 01</span>
                         <div className="h-7 bg-white border border-slate-200 rounded-lg relative overflow-hidden flex items-center">
@@ -1266,7 +1342,6 @@
                         </div>
                       </div>
 
-                      {/* Poltronas Gantt */}
                       {poltronas.map(p => (
                         <div key={p.id} className="space-y-1">
                           <span className="text-xs font-bold text-slate-700 block">{p.numero}</span>
@@ -1309,7 +1384,102 @@
 
           </main>
 
-          {/* MODAL: REGISTRAR IMPREVISTO (FUNCIONALIDADE SINFONIA) */}
+          {/* MODAL: REGRAS DE AGENDAMENTO & PARÂMETROS */}
+          {isRulesOpen && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-xs animate-in fade-in">
+              <div className="bg-white border border-slate-200 rounded-3xl max-w-2xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
+                <div className="p-5 border-b border-slate-200 flex items-center justify-between bg-slate-50">
+                  <div>
+                    <h3 className="font-extrabold text-slate-900 text-base">⚙️ Regras de Agendamento & Parâmetros</h3>
+                    <p className="text-xs text-slate-500">Ajuste de intervalos de giro, transporte e inclusão de novas drogas</p>
+                  </div>
+                  <button onClick={() => setIsRulesOpen(false)} className="text-slate-400 hover:text-slate-700 font-bold">✕</button>
+                </div>
+
+                <div className="p-6 overflow-y-auto space-y-5 text-xs flex-1">
+                  <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3">
+                    <span className="font-bold text-slate-900 block">Tempos de Intervalo & Sincronia JIT:</span>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                      <div className="bg-white p-3 rounded-xl border border-slate-200">
+                        <label className="font-bold text-slate-700 block mb-1">Giro de Leito</label>
+                        <div className="flex items-center gap-1 font-mono">
+                          <input
+                            type="number"
+                            value={regras.tempo_higienizacao_min}
+                            onChange={(e) => setRegras({ ...regras, tempo_higienizacao_min: Number(e.target.value) })}
+                            className="w-full bg-slate-50 border border-slate-300 rounded px-2 py-1 font-bold"
+                          />
+                          <span>min</span>
+                        </div>
+                        <span className="text-[10px] text-slate-400 mt-1 block">Higienização entre pacientes</span>
+                      </div>
+
+                      <div className="bg-white p-3 rounded-xl border border-slate-200">
+                        <label className="font-bold text-slate-700 block mb-1">Transporte Capela</label>
+                        <div className="flex items-center gap-1 font-mono">
+                          <input
+                            type="number"
+                            value={regras.tempo_transporte_bolsa_min}
+                            onChange={(e) => setRegras({ ...regras, tempo_transporte_bolsa_min: Number(e.target.value) })}
+                            className="w-full bg-slate-50 border border-slate-300 rounded px-2 py-1 font-bold"
+                          />
+                          <span>min</span>
+                        </div>
+                        <span className="text-[10px] text-slate-400 mt-1 block">Checagem e envio</span>
+                      </div>
+
+                      <div className="bg-white p-3 rounded-xl border border-slate-200">
+                        <label className="font-bold text-slate-700 block mb-1">Acomodação Prévia</label>
+                        <div className="flex items-center gap-1 font-mono">
+                          <input
+                            type="number"
+                            value={regras.tempo_acomodacao_min}
+                            onChange={(e) => setRegras({ ...regras, tempo_acomodacao_min: Number(e.target.value) })}
+                            className="w-full bg-slate-50 border border-slate-300 rounded px-2 py-1 font-bold"
+                          />
+                          <span>min</span>
+                        </div>
+                        <span className="text-[10px] text-slate-400 mt-1 block">Senta antes da bolsa chegar</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3">
+                    <span className="font-bold text-slate-900 block">Protocolos Ativos na Unidade:</span>
+                    <div className="bg-white border border-slate-200 rounded-xl overflow-hidden">
+                      <table className="w-full text-left text-xs">
+                        <thead>
+                          <tr className="bg-slate-50 border-b border-slate-200 text-slate-500 uppercase text-[10px] font-bold">
+                            <th className="p-2.5">Protocolo</th>
+                            <th className="p-2.5">Preparo</th>
+                            <th className="p-2.5">Infusão</th>
+                            <th className="p-2.5">Limite Cut-off</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-100">
+                          {protocolos.map(p => (
+                            <tr key={p.id}>
+                              <td className="p-2.5 font-bold text-slate-900">{p.nome}</td>
+                              <td className="p-2.5 font-mono">{p.duracao_manipulacao_min}m</td>
+                              <td className="p-2.5 font-mono">{p.duracao_infusao_min}m</td>
+                              <td className="p-2.5 font-mono font-bold text-amber-800">{p.horarioLimite}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-4 border-t border-slate-200 bg-slate-50 flex justify-end gap-2">
+                  <button onClick={() => setIsRulesOpen(false)} className="px-4 py-2 rounded-xl text-slate-600 font-semibold hover:bg-slate-200">Fechar</button>
+                  <button onClick={() => { setIsRulesOpen(false); showToast('Regras de agendamento salvas!'); }} className="px-4 py-2 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold shadow-xs">Salvar Parâmetros</button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* MODAL: REGISTRAR IMPREVISTO */}
           {isImprevistoOpen && (
             <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-xs">
               <div className="bg-white border border-slate-200 rounded-3xl max-w-md w-full p-5 shadow-2xl">
@@ -1323,8 +1493,7 @@
 
                 <form onSubmit={(e) => {
                   e.preventDefault();
-                  const form = e.target;
-                  showToast(`Imprevisto registrado para o paciente! Efeito cascata recalculado.`);
+                  showToast(`Imprevisto registrado! Efeito cascata recalculado.`);
                   setIsImprevistoOpen(false);
                 }} className="space-y-3 text-xs">
                   <div>
@@ -1445,7 +1614,7 @@
                   const nome = form.nome.value;
                   const prontuario = form.prontuario.value;
                   const protId = Number(form.protocolo.value);
-                  const prot = SEED_PROTOCOLOS.find(p => p.id === protId);
+                  const prot = protocolos.find(p => p.id === protId) || protocolos[0];
 
                   const novo = {
                     id: Date.now(),
@@ -1464,7 +1633,12 @@
                     horario_chegada: form.chegada.value || '10:30',
                     horario_inicio_infusao_real: null,
                     minutos_restantes_infusao: prot.duracao_infusao_min,
-                    alerta_higienizacao: false
+                    alerta_higienizacao: false,
+                    medico: form.medico.value || 'Dra. Camila Torres',
+                    turno: form.turno.value || 'Manhã',
+                    ciclo: 'Ciclo 1/6',
+                    acesso_venoso: 'Port-a-Cath',
+                    exames_status: 'Exames Liberados'
                   };
 
                   setPacientes(prev => [...prev, novo]);
@@ -1485,10 +1659,27 @@
                       <input name="chegada" type="time" defaultValue="10:30" className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-slate-900 font-mono focus:outline-none focus:border-teal-600 focus:ring-1 focus:ring-teal-600" />
                     </div>
                   </div>
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label className="text-slate-600 font-semibold block mb-1">Médico Responsável</label>
+                      <select name="medico" className="w-full bg-white border border-slate-300 rounded-xl px-2 py-2 text-slate-900">
+                        <option value="Dra. Camila Torres">Dra. Camila Torres</option>
+                        <option value="Dr. Roberto Alencar">Dr. Roberto Alencar</option>
+                        <option value="Dra. Mariana Rios">Dra. Mariana Rios</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="text-slate-600 font-semibold block mb-1">Turno</label>
+                      <select name="turno" className="w-full bg-white border border-slate-300 rounded-xl px-2 py-2 text-slate-900">
+                        <option value="Manhã">☀️ Manhã</option>
+                        <option value="Tarde">🌙 Tarde</option>
+                      </select>
+                    </div>
+                  </div>
                   <div>
                     <label className="text-slate-600 font-semibold block mb-1">Protocolo Quimioterápico</label>
                     <select name="protocolo" className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-slate-900 focus:outline-none focus:border-teal-600 focus:ring-1 focus:ring-teal-600">
-                      {SEED_PROTOCOLOS.map(p => (
+                      {protocolos.map(p => (
                         <option key={p.id} value={p.id}>{p.nome} ({p.duracao_infusao_min}m QT • Limite: {p.horarioLimite})</option>
                       ))}
                     </select>

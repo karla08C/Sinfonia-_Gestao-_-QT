@@ -75,6 +75,14 @@ export const INITIAL_PROTOCOLOS = [
   { id: 6, nome: 'Bortezomibe + Dexametasona', duracao_manipulacao_min: 15, duracao_infusao_min: 30, tipo_droga: 'Inibidor de Proteassoma', corFolha: 'Azul (Injetável)', horarioLimite: '16:00' }
 ];
 
+export const INITIAL_REGRAS_AGENDAMENTO = {
+  tempo_higienizacao_min: 15,
+  tempo_transporte_bolsa_min: 15,
+  tempo_acomodacao_min: 10,
+  inicio_turno_manha: '07:00',
+  inicio_turno_tarde: '12:30'
+};
+
 export const INITIAL_PACIENTES = [
   {
     id: 1,
@@ -93,7 +101,12 @@ export const INITIAL_PACIENTES = [
     horario_chegada: '07:20',
     horario_inicio_infusao_real: '08:00',
     minutos_restantes_infusao: 12, // Destaque Amarelo de Alerta!
-    alerta_higienizacao: true
+    alerta_higienizacao: true,
+    medico: 'Dra. Camila Torres',
+    turno: 'Manhã',
+    ciclo: 'Ciclo 4/12',
+    acesso_venoso: 'Port-a-Cath',
+    exames_status: 'Exames Liberados'
   },
   {
     id: 2,
@@ -112,7 +125,12 @@ export const INITIAL_PACIENTES = [
     horario_chegada: '08:00',
     horario_inicio_infusao_real: '09:00',
     minutos_restantes_infusao: 110,
-    alerta_higienizacao: false
+    alerta_higienizacao: false,
+    medico: 'Dr. Roberto Alencar',
+    turno: 'Manhã',
+    ciclo: 'Ciclo 2/6',
+    acesso_venoso: 'Acesso Periférico',
+    exames_status: 'Exames Liberados'
   },
   {
     id: 3,
@@ -131,7 +149,12 @@ export const INITIAL_PACIENTES = [
     horario_chegada: '08:30',
     horario_inicio_infusao_real: null,
     minutos_restantes_infusao: 60,
-    alerta_higienizacao: false
+    alerta_higienizacao: false,
+    medico: 'Dra. Mariana Rios',
+    turno: 'Manhã',
+    ciclo: 'Ciclo 6/12',
+    acesso_venoso: 'Port-a-Cath',
+    exames_status: 'Exames Liberados'
   },
   {
     id: 4,
@@ -150,7 +173,12 @@ export const INITIAL_PACIENTES = [
     horario_chegada: '09:00',
     horario_inicio_infusao_real: null,
     minutos_restantes_infusao: 150,
-    alerta_higienizacao: false
+    alerta_higienizacao: false,
+    medico: 'Dr. Roberto Alencar',
+    turno: 'Manhã',
+    ciclo: 'Ciclo 3/4',
+    acesso_venoso: 'Port-a-Cath',
+    exames_status: 'Exames Liberados'
   },
   {
     id: 5,
@@ -169,13 +197,18 @@ export const INITIAL_PACIENTES = [
     horario_chegada: '09:40',
     horario_inicio_infusao_real: null,
     minutos_restantes_infusao: 120,
-    alerta_higienizacao: false
+    alerta_higienizacao: false,
+    medico: 'Dra. Camila Torres',
+    turno: 'Manhã',
+    ciclo: 'Ciclo 1/8',
+    acesso_venoso: 'PICC',
+    exames_status: 'Exames Liberados'
   },
   {
     id: 6,
     nome: 'Roberto Mendes de Freitas',
     prontuario: 'PAC-052',
-    status: 'Aguardando Check-in',
+    status: 'Consulta Médica', // Nova Etapa Clínica!
     protocolo_id: 1,
     protocolo_nome: 'FOLFIRINOX',
     tipo_droga: 'Citotóxico / Irinotecano + Oxaliplatina',
@@ -188,7 +221,12 @@ export const INITIAL_PACIENTES = [
     horario_chegada: '10:00',
     horario_inicio_infusao_real: null,
     minutos_restantes_infusao: 360,
-    alerta_higienizacao: false
+    alerta_higienizacao: false,
+    medico: 'Dr. Roberto Alencar',
+    turno: 'Manhã',
+    ciclo: 'Ciclo 5/12',
+    acesso_venoso: 'Port-a-Cath',
+    exames_status: 'Exames Liberados'
   },
   {
     id: 7,
@@ -204,10 +242,15 @@ export const INITIAL_PACIENTES = [
     duracao_infusao_min: 30,
     poltrona_id: null,
     poltrona_numero: null,
-    horario_chegada: '10:15',
+    horario_chegada: '13:15',
     horario_inicio_infusao_real: null,
     minutos_restantes_infusao: 30,
-    alerta_higienizacao: false
+    alerta_higienizacao: false,
+    medico: 'Dra. Mariana Rios',
+    turno: 'Tarde',
+    ciclo: 'Ciclo 2/4',
+    acesso_venoso: 'Acesso Periférico',
+    exames_status: 'Aguardando Hemograma'
   },
   {
     id: 8,
@@ -226,6 +269,11 @@ export const INITIAL_PACIENTES = [
     horario_chegada: '07:10',
     horario_inicio_infusao_real: '07:45',
     minutos_restantes_infusao: 0,
-    alerta_higienizacao: false
+    alerta_higienizacao: false,
+    medico: 'Dra. Camila Torres',
+    turno: 'Manhã',
+    ciclo: 'Ciclo 12/12',
+    acesso_venoso: 'Port-a-Cath',
+    exames_status: 'Exames Liberados'
   }
 ];
