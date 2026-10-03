@@ -137,4 +137,4 @@ Abra diretamente no seu navegador o arquivo:
 Para compartilhar o acesso com outros computadores ou tablets na mesma rede Wi-Fi da clínica:
 ```bash
 node dev-server.js
-```
+
