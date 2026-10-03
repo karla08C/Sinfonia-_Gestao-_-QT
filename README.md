@@ -72,3 +72,7 @@ node dev-server.js
 O servidor inicializa e exibe:
 - Seu acesso: `http://localhost:5173`
 - Acesso da equipe (mesmo Wi-Fi / Clínica): `http://192.168.X.X:5173`
+
+
+
+- Projeto realizado apresentar no ideathon para o Instituto do Câncer do Ceará. 
