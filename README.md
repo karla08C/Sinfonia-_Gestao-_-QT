@@ -1,10 +1,12 @@
-# Sinfonia – Gestão & Torre de Controle de Quimioterapia
+# Sinfonia – Gestão & Torre de Controle de Quimioterapia 
+( Projeto  desenvolvido para apresentar no Ideathon do Instituto do Câncer do Ceará)
+
 
 O **Sinfonia** é uma plataforma clínica e operacional de orquestração de fluxo oncológico de ponta a ponta. Desenvolvido para centros de tratamento de alta complexidade e ambulatórios de oncologia, o sistema sincroniza em tempo real as etapas de **Recepção**, **Triagem**, **Capela de Manipulação (Farmácia)** e **Poltronas de Infusão**, garantindo o preparo *Just-in-Time* (JIT), balanceamento de carga e redução drástica do tempo de espera do paciente.
 
 ---
 
-## 🏥 Integração com o Sistema Tasy (Philips Tasy)
+##  Integração com o Sistema Tasy (Philips Tasy)
 
 O **Sinfonia** foi concebido como uma camada de inteligência operacional e orquestração em tempo real que opera **diretamente integrada ao ERP/PEP Philips Tasy**, software líder de gestão hospitalar e prontuário eletrônico no Brasil.
 
@@ -22,7 +24,7 @@ O **Sinfonia** foi concebido como uma camada de inteligência operacional e orqu
 
 ---
 
-## 🌟 Funcionalidades do Sistema
+##  Funcionalidades do Sistema
 
 ### 1. Torre de Controle (Kanban Clínico de 7 Etapas)
 - **Fluxo Contínuo Hospitalar:**
@@ -100,7 +102,7 @@ Um dos maiores desafios dos centros de oncologia de referência é o acolhimento
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+##  Tecnologias Utilizadas
 
 - **Frontend:** React 18, Vite, Tailwind CSS, Lucide Icons.
 - **Backend:** Node.js, Express, SQLite3 (`sqlite3`), CORS, Dotenv.
@@ -108,13 +110,7 @@ Um dos maiores desafios dos centros de oncologia de referência é o acolhimento
 
 ---
 
-## 🚀 Como Executar o Projeto
-
-### Opção 1: Demonstração Imediata (Sem Instalação)
-Abra diretamente no seu navegador o arquivo:
-👉 [**`standalone-preview.html`**](file:///C:/Users/Usuário/.gemini/antigravity/scratch/oncoflow/standalone-preview.html)
-
-### Opção 2: Aplicação Full-Stack (Backend Node.js + Frontend React)
+##  Como Executar o Projeto
 
 1. **Backend (Node.js & Express):**
    ```bash
@@ -132,8 +128,10 @@ Abra diretamente no seu navegador o arquivo:
    ```
    Acesse a interface em: `http://localhost:5173`
 
-### Opção 3: Servidor de Apresentação em Rede Local
+### Opção 2: Servidor de Apresentação em Rede Local
 Para compartilhar o acesso com outros computadores ou tablets na mesma rede Wi-Fi da clínica:
 ```bash
 node dev-server.js
+---
+
 
