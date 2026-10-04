@@ -4,7 +4,7 @@ O **Sinfonia** é uma plataforma clínica e operacional de orquestração de flu
 
 ---
 
-## 🏥 Integração com o Sistema Tasy (Philips Tasy)
+##  Integração com o Sistema Tasy (Philips Tasy)
 
 O **Sinfonia** foi concebido como uma camada de inteligência operacional e orquestração em tempo real que opera **diretamente integrada ao ERP/PEP Philips Tasy**, software líder de gestão hospitalar e prontuário eletrônico no Brasil.
 
@@ -22,7 +22,7 @@ O **Sinfonia** foi concebido como uma camada de inteligência operacional e orqu
 
 ---
 
-## 🌟 Funcionalidades do Sistema
+##  Funcionalidades do Sistema
 
 ### 1. Torre de Controle (Kanban Clínico de 7 Etapas)
 - **Fluxo Contínuo Hospitalar:**
@@ -100,7 +100,7 @@ Um dos maiores desafios dos centros de oncologia de referência é o acolhimento
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+##  Tecnologias Utilizadas
 
 - **Frontend:** React 18, Vite, Tailwind CSS, Lucide Icons, Headless UI.
 - **Backend:** Python 3.11+, FastAPI, SQLAlchemy, Pydantic v2, SQLite (preparado para migração a PostgreSQL/Oracle Hospitalar).
@@ -108,13 +108,10 @@ Um dos maiores desafios dos centros de oncologia de referência é o acolhimento
 
 ---
 
-## 🚀 Como Executar o Projeto
+##  Como Executar o Projeto
 
-### Opção 1: Demonstração Imediata (Sem Instalação)
-Abra diretamente no seu navegador o arquivo:
-👉 [**`standalone-preview.html`**](file:///C:/Users/Usuário/.gemini/antigravity/scratch/oncoflow/standalone-preview.html)
 
-### Opção 2: Aplicação Full-Stack (Backend + Frontend)
+### Opção 1: Aplicação Full-Stack (Backend + Frontend)
 
 1. **Backend (FastAPI):**
    ```bash
@@ -133,8 +130,9 @@ Abra diretamente no seu navegador o arquivo:
    ```
    Acesse: `http://localhost:5173`
 
-### Opção 3: Servidor de Apresentação em Rede Local
+### Opção 2: Servidor de Apresentação em Rede Local
 Para compartilhar o acesso com outros computadores ou tablets na mesma rede Wi-Fi da clínica:
 ```bash
 node dev-server.js
 
+##  Projeto  desenvolvido para apresentar no Ideathon do Instituto do Câncer do Ceará
