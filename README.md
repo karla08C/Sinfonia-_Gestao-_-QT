@@ -1,4 +1,6 @@
-# Sinfonia – Gestão & Torre de Controle de Quimioterapia
+# Sinfonia – Gestão & Torre de Controle de Quimioterapia 
+( Projeto  desenvolvido para apresentar no Ideathon do Instituto do Câncer do Ceará)
+
 
 O **Sinfonia** é uma plataforma clínica e operacional de orquestração de fluxo oncológico de ponta a ponta. Desenvolvido para centros de tratamento de alta complexidade e ambulatórios de oncologia, o sistema sincroniza em tempo real as etapas de **Recepção**, **Triagem**, **Capela de Manipulação (Farmácia)** e **Poltronas de Infusão**, garantindo o preparo *Just-in-Time* (JIT), balanceamento de carga e redução drástica do tempo de espera do paciente.
 
@@ -134,7 +136,6 @@ Um dos maiores desafios dos centros de oncologia de referência é o acolhimento
 Para compartilhar o acesso com outros computadores ou tablets na mesma rede Wi-Fi da clínica:
 ```bash
 node dev-server.js
+---
 
 
-
-##  Projeto  desenvolvido para apresentar no Ideathon do Instituto do Câncer do Ceará
