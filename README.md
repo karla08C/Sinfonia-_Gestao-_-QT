@@ -102,8 +102,8 @@ Um dos maiores desafios dos centros de oncologia de referência é o acolhimento
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **Frontend:** React 18, Vite, Tailwind CSS, Lucide Icons, Headless UI.
-- **Backend:** Python 3.11+, FastAPI, SQLAlchemy, Pydantic v2, SQLite (preparado para migração a PostgreSQL/Oracle Hospitalar).
+- **Frontend:** React 18, Vite, Tailwind CSS, Lucide Icons.
+- **Backend:** Node.js, Express, SQLite3 (`sqlite3`), CORS, Dotenv.
 - **Standalone:** HTML5 autônomo com React + Babel + Tailwind via CDN para apresentações rápidas sem dependência de instalação local.
 
 ---
@@ -114,16 +114,15 @@ Um dos maiores desafios dos centros de oncologia de referência é o acolhimento
 Abra diretamente no seu navegador o arquivo:
 👉 [**`standalone-preview.html`**](file:///C:/Users/Usuário/.gemini/antigravity/scratch/oncoflow/standalone-preview.html)
 
-### Opção 2: Aplicação Full-Stack (Backend + Frontend)
+### Opção 2: Aplicação Full-Stack (Backend Node.js + Frontend React)
 
-1. **Backend (FastAPI):**
+1. **Backend (Node.js & Express):**
    ```bash
    cd backend
-   python -m venv venv
-   source venv/bin/activate  # No Windows: .\venv\Scripts\activate
-   pip install -r requirements.txt
-   uvicorn app.main:app --reload --port 8000
+   npm install
+   npm run dev
    ```
+   O servidor API iniciará em: `http://localhost:3001`
 
 2. **Frontend (React + Vite):**
    ```bash
@@ -131,7 +130,7 @@ Abra diretamente no seu navegador o arquivo:
    npm install
    npm run dev
    ```
-   Acesse: `http://localhost:5173`
+   Acesse a interface em: `http://localhost:5173`
 
 ### Opção 3: Servidor de Apresentação em Rede Local
 Para compartilhar o acesso com outros computadores ou tablets na mesma rede Wi-Fi da clínica:
